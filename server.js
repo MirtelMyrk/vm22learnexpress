@@ -14,3 +14,5 @@ app.get('/page2', (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening on port http://localhost:${port}`);
 });
+
+// nodemon needs npm run start
