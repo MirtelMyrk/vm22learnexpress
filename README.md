@@ -19,3 +19,6 @@ või
 või (soovitatud)
 
 `$ npm start`
+
+Iga lehe alguses on meil vaja olnud terve html baas layout kopeerida.
+Selleks, et suurte asjade koguaegsest kopeerimisest hoidud, kasutame nunjucks.

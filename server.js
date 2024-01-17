@@ -1,18 +1,23 @@
 const express = require('express');
+const nunjucks = require('nunjucks');
 const app = express();
 const port = 3000;
 
+nunjucks.configure('views', {
+    autoescape: true,
+    express: app
+});
+
+
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
+  res.render('index.html');
 //   console.log('somebody visited');
 });
 
 app.get('/page2', (req, res) => {
-    res.sendFile(__dirname + '/page2.html');
+    res.render('page2.html');
   });
 
 app.listen(port, () => {
   console.log(`Example app listening on port http://localhost:${port}`);
 });
-
-// nodemon needs npm run start
