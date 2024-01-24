@@ -1,0 +1,33 @@
+{% extends "partials/layout.njk"%}
+{% block  title %}Form{% endblock %}
+{% block  content %}
+    <h1>Form</h1>
+    {% if fname and sname and age %}
+    <p>Hello {{ fname }} {{ sname }}! You are {{ age }} years old!</p>
+    {% endif %}
+    <form>
+        <p>
+        <label>
+            First Name <br>
+            <input type="text" placeholder="First Name" name="fname">
+        </label>
+        </p>
+        <p>
+        <label>
+            Surname <br>
+            <input type="text" placeholder="Surname" name="sname">
+        </label>
+        </p>
+        <p>
+        <label>
+            Age <br>
+            <input type="number" placeholder="Age" min="1" max="150" name="age">
+        </label>
+        </p>
+        <p>
+            <input type="submit" value="Enter">
+        </p>
+    </form>
+{% endblock %}
+
+{# step="0.1" et muute input number 5.4 2.4 etc võimalikuks #}
