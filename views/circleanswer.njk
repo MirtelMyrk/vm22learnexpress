@@ -1,0 +1,19 @@
+{% extends "partials/layout.njk"%}
+{% block  title %}Circle{% endblock %}
+{% block  content %}
+    <h3>Area</h3>
+    A = πr<sup>2</sup> <br>
+    A = π{{ r }}<sup>2</sup> <br>
+    A = π{{ r*r }} <br>
+    A = {{ a }} <br><br>
+    <h3>Circumference</h3>
+    C = 2πr <br>
+    C = {{ 2*r }}π <br>
+    C = {{ 2*r*p }} <br><br>
+    <h3>Volume</h3>
+    V = 4/3 πr<sup>3</sup> <br>
+    V = 4/3 π{{ r }}<sup>3</sup> <br>
+    V = 4/3 π{{ r*r*r }}<br>
+    V = π{{ 4/3*r*r*r }} <br>
+    V = {{ 4/3*r*r*r*p }} <br>
+{% endblock %}
