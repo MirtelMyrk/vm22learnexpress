@@ -1,4 +1,5 @@
 const express = require('express');
+const bcrypt = require('bcrypt');
 const router = express.Router();
 
 const User = require('./models/User.js')
@@ -21,8 +22,35 @@ router.post('/register', async (req, res) => {
             email: req.body.email,
             password: bcrypt.hashSync(req.body.password, 12)
         })
-        res.redirect('/')
+        res.redirect('/');
     }
 });
 
+router.get('/login', async (req, res) => {
+    res.render('auth/login.njk');
+});
+
+router.post('/login', async (req, res) => {
+    let user = await User.findOne({
+        where: {
+            email: req.body.email
+        }
+    })
+    if(!user || !bcrypt.compareSync(req.body.password, user.password)){
+        res.redirect('/login');
+    } else {
+        req.session.user = user;
+        req.session.save((err) => {
+            res.redirect('/');
+        });
+        
+    }
+});
+
+router.get('/logout', async (req, res) => {
+    req.session.user = null;
+    req.session.save((err) => {
+        res.redirect('/');
+    })
+});
 module.exports = router;
