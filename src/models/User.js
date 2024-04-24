@@ -1,7 +1,7 @@
 const {Sequelize, QueryTypes, DataTypes} = require('sequelize');
 let sequelize = new Sequelize('sqlite:db.sqlite');
-
-module.exports = sequelize.define('User', {
+const Movie = require('./Movie.js');
+const User = sequelize.define('User', {
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -19,4 +19,9 @@ module.exports = sequelize.define('User', {
         type: DataTypes.STRING,
         allowNull: false,
     }
-}, {tableName: 'users', timestamps: false});
+}, {tableName: 'users', timestamps:false});
+User.associations = () => {
+    User.hasMany(Movie);
+};
+
+module.exports = User;
