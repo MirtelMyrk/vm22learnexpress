@@ -2,9 +2,11 @@ const express = require('express');
 const nunjucks = require('nunjucks');
 const app = express();
 const port = 3000;
+const {Movie, User} = require('./models/index.js');
+const fileUpload = require('express-fileupload');
 const cookieParser = require('cookie-parser');
 app.use(cookieParser());
-
+app.use(fileUpload());
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 app.use(session({

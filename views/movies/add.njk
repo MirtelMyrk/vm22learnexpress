@@ -1,10 +1,17 @@
 {% extends "partials/layout.njk"%}
 {% block  title %}Add movie{% endblock %}
 {% block  content %}
-    <form action="/movies/add" method="POST">
-        <input type="text" placeholder="Movie name" name= "movie">
-        <input type="number" placeholder="Movie Year" name= "year">
-        <textarea name="description" placeholder= "Movie description"></textarea>
-        <input type="submit" value="Add">
-    </form>
+    <div class="mt-5">
+        <form action="/movies/add" method="POST" enctype="multipart/form-data">
+            <label for="exampleInputEmail1" class="form-label h4 fw-normal">Movie</label>
+                <input type="text" placeholder="Movie name" class="form-control" name= "movie">
+            <label for="exampleInputEmail1" class="form-label h4 fw-normal">Year</label>
+                <input type="number" placeholder="Movie Year" class="form-control" name= "year">
+            <label for="exampleInputEmail1" class="form-label h4 fw-normal">Description</label>
+                <textarea name="description" placeholder= "Movie description" class="form-control"></textarea>
+                <label for="formFile" class="form-label h4 fw-normal">Image</label>
+                <input class="form-control" type="file" name="image">
+                <input type="submit" value="Add" class="btn btn-lg btn-info mt-5 text-white">
+            </form>
+    </div>
 {% endblock %}

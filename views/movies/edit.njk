@@ -2,9 +2,12 @@
 {% block  title %}Add movie{% endblock %}
 {% block  content %}
     <form action="/movies/edit/{{movie.id}}" method="POST">
-        <input type="text" placeholder="Movie name" name= "movie" value="{{movie.name}}">
-        <input type="number" placeholder="Movie Year" name= "year" value="{{movie.year}}">
-        <textarea name="description" placeholder= "Movie description">{{movie.description}}</textarea>
-        <input type="submit" value="Add">
+    <label for="exampleInputEmail1" class="form-label h4 fw-normal">Movie</label>
+        <input type="text" class="form-control" placeholder="Movie name" name= "movie" value="{{movie.name}}">
+    <label for="exampleInputEmail1" class="form-label h4 fw-normal">Year</label>
+        <input type="number" placeholder="Movie Year" class="form-control" name= "year" value="{{movie.year}}">
+    <label for="exampleInputEmail1" class="form-label h4 fw-normal">Description</label>
+        <textarea name="description" class="form-control" placeholder= "Movie description">{{movie.description}}</textarea>
+        <input type="submit" value="Save" class="btn btn-lg btn-info mt-5 text-white">
     </form>
 {% endblock %}

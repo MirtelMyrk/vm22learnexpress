@@ -2,7 +2,7 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const router = express.Router();
 
-const User = require('./models/User.js')
+const {User} = require('../models/index.js');
 
 router.get('/register', async (req, res) => {
     res.render('auth/register.njk');
